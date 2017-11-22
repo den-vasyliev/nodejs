@@ -63,9 +63,7 @@ job('publish_qlmm') {
         }
         downstream('ci_update_qsys_qlmm_dev', 'SUCCESS')
     }
-    rcov {
-        reportDirectory('coverage')
-    }
+   
 }
 job('ci_update_qlmm_ui') {
     description('Update QLMM ui version to the latest. Warning! Manual job modifications would be overwritten by seed job.')
