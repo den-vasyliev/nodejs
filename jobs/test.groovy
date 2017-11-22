@@ -1,5 +1,5 @@
 testScript = """true
-    |RESULT=true
+    |RESULT=0
     |exit \$RESULT
     """.stripMargin()
 
