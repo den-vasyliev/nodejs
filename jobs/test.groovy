@@ -1,4 +1,3 @@
-import jenkins.Configuration
 testScript = """true
     |RESULT=true
     |exit \$RESULT
