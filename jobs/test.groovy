@@ -56,7 +56,7 @@ job('publish_qlmm') {
         shell(testScript)
     }
     publishers {
-        archiveArtifacts(qlmmTar)
+        
         junit {
             testResults('**/junit.xml')
             allowEmptyResults(true)
