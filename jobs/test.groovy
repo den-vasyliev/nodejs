@@ -30,9 +30,7 @@ job('ci_approve_qlmm') {
             testResults('**/junit.xml')
             allowEmptyResults(true)
         }
-        rcov {
-            reportDirectory('coverage')
-        }
+        
     }
 }
 job('publish_qlmm') {
@@ -56,7 +54,6 @@ job('publish_qlmm') {
     }
     steps {
         shell(testScript)
-        shell(archive)
     }
     publishers {
         archiveArtifacts(qlmmTar)
