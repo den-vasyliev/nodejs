@@ -1,4 +1,4 @@
-testScript = """true
+testScript = """ true
     |RESULT=0
     |exit \$RESULT
     """.stripMargin()
