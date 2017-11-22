@@ -15,7 +15,7 @@ job('ci_approve_qlmm') {
         git {
             remote {
                 refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
-                url("https://github.com/den-vasyliev/msrn.git")
+                url("https://github.com/den-vasyliev/nodejs.git")
                 
             }
             branch('')
@@ -46,7 +46,7 @@ job('publish_qlmm') {
         git {
             remote {
                 name('origin')
-                url("https://github.com/den-vasyliev/msrn.git")
+                url("https://github.com/den-vasyliev/nodejs.git")
                
             }
             branch('master')
@@ -72,7 +72,7 @@ job('ci_update_qlmm_ui') {
         git {
             remote {
                 name('origin')
-                url('https://github.com/den-vasyliev/msrn.git')
+                url('https://github.com/den-vasyliev/nodejs.git')
                 
             }
             branch('master')
