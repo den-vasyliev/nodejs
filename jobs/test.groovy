@@ -5,13 +5,7 @@ testScript = """true
 
 job('ci_approve_qlmm') {
     description('Test qlmm pull request. Warning! Manual job modifications would be overwritten by seed job.')
-    wrappers {
-        colorizeOutput()
-        preBuildCleanup()
-        timeout {
-            absolute(15)
-        }
-    }
+    
     triggers {
         pollSCM {
             scmpoll_spec('')
@@ -31,11 +25,7 @@ job('ci_approve_qlmm') {
         shell(testScript)
     }
     publishers() {
-        bitbucketBuildStatusNotifier {
-            baseUrl("")
-            username("")
-            password("")
-        }
+        
         junit {
             testResults('**/junit.xml')
             allowEmptyResults(true)
@@ -48,13 +38,7 @@ job('ci_approve_qlmm') {
 job('publish_qlmm') {
    
     description('Create archive with QLMM. Warning! Manual job modifications would be overwritten by seed job.')
-    wrappers {
-        colorizeOutput()
-        preBuildCleanup()
-        timeout {
-            absolute(15)
-        }
-    }
+    
     triggers {
         pollSCM {
             scmpoll_spec('')
@@ -88,13 +72,7 @@ job('publish_qlmm') {
 }
 job('ci_update_qlmm_ui') {
     description('Update QLMM ui version to the latest. Warning! Manual job modifications would be overwritten by seed job.')
-    wrappers {
-        colorizeOutput()
-        preBuildCleanup()
-        timeout {
-            absolute(15)
-        }
-    }
+    
     scm {
         git {
             remote {
