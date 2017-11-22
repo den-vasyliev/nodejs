@@ -4,7 +4,6 @@ testScript = """true
     """.stripMargin()
 
 job('ci_approve_qlmm') {
-    lockableResources(Configuration.LOCKABLE_RESOURCE_QLMM_CORE)
     description('Test qlmm pull request. Warning! Manual job modifications would be overwritten by seed job.')
     wrappers {
         colorizeOutput()
@@ -23,7 +22,7 @@ job('ci_approve_qlmm') {
             remote {
                 refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
                 url("https://github.com/den-vasyliev/msrn.git")
-                credentials(Configuration.GIT_CREDENTIALS)
+                
             }
             branch('')
         }
@@ -47,7 +46,7 @@ job('ci_approve_qlmm') {
     }
 }
 job('publish_qlmm') {
-    lockableResources(Configuration.LOCKABLE_RESOURCE_DOCKER)
+   
     description('Create archive with QLMM. Warning! Manual job modifications would be overwritten by seed job.')
     wrappers {
         colorizeOutput()
@@ -66,7 +65,7 @@ job('publish_qlmm') {
             remote {
                 name('origin')
                 url("https://github.com/den-vasyliev/msrn.git")
-                credentials(Configuration.GIT_CREDENTIALS)
+               
             }
             branch('master')
         }
@@ -101,7 +100,7 @@ job('ci_update_qlmm_ui') {
             remote {
                 name('origin')
                 url('https://github.com/den-vasyliev/msrn.git')
-                credentials(Configuration.GIT_CREDENTIALS)
+                
             }
             branch('master')
         }
