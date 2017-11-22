@@ -117,7 +117,7 @@ job('ci_update_qlmm_ui') {
     }
 }
 listView('QLMM') {
-    description('''<h3><a href="">Bitbucket</a></h3>''';)
+    description('Bitbucket</a></h3>';)
     filterBuildQueue()
     filterExecutors()
     jobs {
