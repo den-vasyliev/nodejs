@@ -60,7 +60,30 @@ job('publish_qlmm') {
     }
 
     publishers {
-        buildDescription(/.*new tag\] [^\s]* ([^\s]*)/)
+        buildDescription("<a href=>http://</a>")
+        groovyPostBuild {
+            script(
+manager.listener.logger.println("commit notification hd387ry34oiuhr3ofin")
+manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
+
+
+pattern_commit = ~/commit notification\s*(.*)/
+pattern_version = ~/\[new tag\]\s*(.*)/
+
+manager.build.logFile.eachLine { 
+   line -> l=line
+ 
+ try {commit=(l =~ /commit notification\s*(.*)/)[0][1]} catch(Exception ex) {;}
+ try {version=(l =~ /.*\[new tag\]\s*(.*)/)[0][1]} catch(Exception ex) {;}
+
+}
+
+
+manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>")
+manager.listener.logger.println("I want to see this line in my job's output: $commit")
+manager.addBadge("star-gold.gif", "icon from greenballs plugin")
+                )
+        }
         junit {
             testResults('**/junit.xml')
             allowEmptyResults(true)
