@@ -62,10 +62,9 @@ job('publish_qlmm') {
     publishers {
         buildDescription("<a href=>http://</a>")
         groovyPostBuild {
-            script(String "
-pattern_commit = ~/commit notification\s*(.*)/
-pattern_version = ~/\[new tag\]\s*(.*)/"
-                )
+            script(String "pattern_commit = ~/commit notification\s*(.*)/
+                |pattern_version = ~/\[new tag\]\s*(.*)/"
+                ).stripMargin()
         }
         junit {
             testResults('**/junit.xml')
