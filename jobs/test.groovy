@@ -66,7 +66,6 @@ job('publish_qlmm') {
                 manager.buildFailure()
             }
         '''.stripIndent().trim()
-    }
         junit {
             testResults('**/junit.xml')
             allowEmptyResults(true)
