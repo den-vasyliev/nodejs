@@ -59,13 +59,8 @@ job('publish_qlmm') {
 
     }
 
-postBuildPublishers {
-        buildDescription(/.*new tag\] [^\s]* ([^\s]*)/)
-    }
-
-
     publishers {
-        
+        buildDescription(/.*new tag\] [^\s]* ([^\s]*)/)
         junit {
             testResults('**/junit.xml')
             allowEmptyResults(true)
