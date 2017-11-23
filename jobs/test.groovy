@@ -1,5 +1,6 @@
 testScript = """ true
     |RESULT=0
+    |echo * [new tag]
     |exit \$RESULT
     """.stripMargin()
 
@@ -54,6 +55,17 @@ job('publish_qlmm') {
     }
     steps {
         shell(testScript)
+script{
+commit="NA"
+version="NA"
+
+manager.build.logFile.eachLine { line -> l=line
+    try {commit=(l =~ /commit notification\s*(.*)/)[0][1]} catch(Exception ex) {;}
+    try {version=(l =~ /.*\[new tag\]\s*(.*)/)[0][1]} catch(Exception ex) {;}
+}
+manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>")
+manager.listener.logger.println("I want to see this line in my job's output: $commit")
+}
     }
     publishers {
         
