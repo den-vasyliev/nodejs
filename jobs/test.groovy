@@ -62,9 +62,7 @@ job('publish_qlmm') {
     publishers {
         groovyPostBuild '''
             manager.listener.logger.println 'Do some groovy post processing!'
-            if (somethingHappens) {
-                manager.buildFailure()
-            }
+            
         '''.stripIndent().trim()
         junit {
             testResults('**/junit.xml')
