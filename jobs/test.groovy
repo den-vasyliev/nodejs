@@ -20,8 +20,8 @@ job('ci_approve_qlmm') {
                 url("https://github.com/den-vasyliev/nodejs.git")
             }
             branch('')
-            scm '* * * * * '
         }
+        scm '* * * * * '
     }
     steps {
         shell(testScript)
