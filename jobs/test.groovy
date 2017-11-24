@@ -79,7 +79,7 @@ manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$
             testResults('**/junit.xml')
             allowEmptyResults(true)
         }
-        downstream('ci_update_qsys_qlmm_dev', 'SUCCESS')
+        downstream('ci_update_qlmm_ui', 'SUCCESS')
     }
    
 }
@@ -113,7 +113,6 @@ listView('QLMM') {
         name('ci_approve_qlmm')
         name('publish_qlmm')
         name('ci_update_qlmm_ui')
-        name('ci_update_qsys_qlmm_dev')
     }
     columns {
         status()
