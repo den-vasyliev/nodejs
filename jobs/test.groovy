@@ -64,7 +64,7 @@ job('publish_qlmm') {
      //   buildDescription('','<a href="" target=_blank>test</a>')
 
         groovyPostBuild '''
-manager.listener.logger.println("commit notification $GIT_COMMIT")
+manager.listener.logger.println("commit notification ${GIT_COMMIT}")
 manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
 
 manager.build.logFile.eachLine { 
@@ -76,7 +76,7 @@ manager.build.logFile.eachLine {
 }
 
 
-manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$GIT_COMMIT target=_blank>$version</a>")
+manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/${GIT_COMMIT} target=_blank>$version</a>")
 manager.listener.logger.println("I want to see this line in my job's output: $commit")
  
         '''.stripIndent().trim()
