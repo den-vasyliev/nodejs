@@ -60,19 +60,16 @@ job('publish_qlmm') {
     }
 
     publishers {
+        buildDescription('<a href="" target=_blank>test</a>')
         groovyPostBuild '''
 manager.listener.logger.println("commit notification hd387ry34oiuhr3ofin")
 manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
 
-
-pattern_commit = ~/commit notification.*(.*)/
-pattern_version = ~/[new tag].s*(.*)/
-
 manager.build.logFile.eachLine { 
    line -> l=line
  
- try {commit=(l =~ /commit notification.*(.*)/)[0][1]} catch(Exception ex) {;}
- try {version=(l =~ /.*[new tag].*(.*)/)[0][1]} catch(Exception ex) {;}
+ try {commit=(l =~ /commit notification(.*)/)[0][1]} catch(Exception ex) {;}
+ try {version=(l =~ /[new tag](.*)/)[0][1]} catch(Exception ex) {;}
 
 }
 
