@@ -16,7 +16,7 @@ job('ci_approve_qlmm') {
     scm {
         git {
             remote {
-                refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
+                refspec('+refs/pull/*:refs/remotes/origin/pr/*')
                 url("https://github.com/den-vasyliev/msrn-cook.git")
                 
             }
