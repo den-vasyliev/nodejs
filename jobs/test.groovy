@@ -12,16 +12,17 @@ job('ci_approve_qlmm') {
         pollSCM {
             scmpoll_spec('')
         }
+        scm '* * * * * '
     }
     scm {
         git {
             remote {
                 refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
                 url("https://github.com/den-vasyliev/nodejs.git")
+                
             }
             branch('')
         }
-        scm '* * * * * '
     }
     steps {
         shell(testScript)
@@ -43,7 +44,6 @@ job('publish_qlmm') {
         pollSCM {
             scmpoll_spec('')
         }
-        
     }
     scm {
         git {
