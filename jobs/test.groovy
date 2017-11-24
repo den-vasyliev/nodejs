@@ -16,7 +16,7 @@ job('ci_approve_qlmm') {
     scm {
         git {
             remote {
-         //       refspec('+refs/pull/*:refs/remotes/origin/pr/*')
+                refspec('+refs/pull/*:refs/remotes/origin/pr/*')
                 url("https://github.com/den-vasyliev/msrn-cook.git")
                 
             }
@@ -32,7 +32,7 @@ job('ci_approve_qlmm') {
             testResults('**/junit.xml')
             allowEmptyResults(true)
         }
-        downstream('publish_qlmm', 'SUCCESS')
+       // downstream('publish_qlmm', 'SUCCESS')
     }
 }
 job('publish_qlmm') {
