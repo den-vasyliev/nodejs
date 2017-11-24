@@ -7,7 +7,6 @@ testScript = """ true
 
 job('ci_approve_qlmm') {
     description(' qlmm pull request. Warning! Manual job modifications would be overwritten by seed job.')
-    label ('Linux')
     triggers {
         pollSCM {
             scmpoll_spec('')
