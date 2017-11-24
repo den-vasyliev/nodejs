@@ -1,4 +1,4 @@
-version="1.13.8"
+version="1.13.9"
 testScript = """
     |RESULT=0
     |exit \$RESULT
@@ -17,7 +17,7 @@ job('ci_approve_qlmm') {
         git {
             remote {
                 refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
-                url("https://github.com/den-vasyliev/nodejs.git")
+                url("https://github.com/den-vasyliev/msrn-cook.git")
                 
             }
             branch('')
@@ -48,7 +48,7 @@ job('publish_qlmm') {
         git {
             remote {
                 name('origin')
-                url("https://github.com/den-vasyliev/nodejs.git")
+                url("https://github.com/den-vasyliev/msrn-cook.git")
                
             }
             branch('master')
@@ -72,7 +72,7 @@ manager.build.logFile.eachLine {
  try {commit=(l =~ /commit notification (.*)/)[0][1]} catch(Exception ex) {;}
  try {version=(l =~ /[new tag].*->(.*)/)[0][1]} catch(Exception ex) {;}
 }
-manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>") 
+manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$commit target=_blank>$version</a>") 
         '''.stripIndent().trim()
 
         junit {
@@ -90,7 +90,7 @@ job('ci_update_qlmm_ui') {
         git {
             remote {
                 name('origin')
-                url('https://github.com/den-vasyliev/nodejs.git')
+                url('https://github.com/den-vasyliev/msrn-cook.git')
                 
             }
             branch('master')
