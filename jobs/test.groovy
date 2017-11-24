@@ -63,16 +63,15 @@ job('publish_qlmm') {
      //   buildDescription('','<a href="" target=_blank>test</a>')
 
         groovyPostBuild '''
-manager.listener.logger.println("commit notification a864681cd8b4f9ac5a9d4bf91a33bee253ebbc84")
-manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
+            manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
 
-manager.build.logFile.eachLine { 
-   line -> l=line
+            manager.build.logFile.eachLine { 
+                line -> l=line
  
- try {commit=(l =~ /git.checkout.-f.(.*)/)[0][1]} catch(Exception ex) {;}
- try {version=(l =~ /[new tag].*->(.*)/)[0][1]} catch(Exception ex) {;}
-}
-manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$commit target=_blank>$version</a>") 
+                    try {commit=(l =~ /git.checkout.-f.(.*)/)[0][1]} catch(Exception ex) {;}
+                    try {version=(l =~ /[new tag].*->(.*)/)[0][1]} catch(Exception ex) {;}
+            }
+    manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$commit target=_blank>$version</a>") 
         '''.stripIndent().trim()
 
         junit {
