@@ -69,7 +69,7 @@ manager.listener.logger.println("* [new tag] v0.13.6 -> v.0.13.6")
 manager.build.logFile.eachLine { 
    line -> l=line
  
- try {commit=(l =~ /commit notification (.*)/)[0][1]} catch(Exception ex) {;}
+ try {commit=(l =~ /git.checkout.-f.(.*)/)[0][1]} catch(Exception ex) {;}
  try {version=(l =~ /[new tag].*->(.*)/)[0][1]} catch(Exception ex) {;}
 }
 manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$commit target=_blank>$version</a>") 
