@@ -11,7 +11,6 @@ job('ci_approve_qlmm') {
         pollSCM {
             scmpoll_spec('')
         }
-        scm '* * * * * '
     }
     scm {
         git {
