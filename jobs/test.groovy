@@ -79,7 +79,7 @@ manager.addShortText("<a href=https://github.com/den-vasyliev/msrn-cook/commit/$
             testResults('**/junit.xml')
             allowEmptyResults(true)
         }
-        downstream('ci_update_qlmm_ui', 'SUCCESS')
+        downstream('ci_update_qlmm_dev', 'SUCCESS')
     }
    
 }
