@@ -77,7 +77,7 @@ manager.build.logFile.eachLine {
 
 manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>")
 manager.listener.logger.println("I want to see this line in my job's output: $commit")
-manager.addBadge("star-gold.gif", "icon from greenballs plugin")  
+ 
         '''.stripIndent().trim()
 
         junit {
