@@ -1,4 +1,4 @@
-version="1.13.7"
+version="1.13.8"
 testScript = """ true
     |RESULT=0
     |echo "[new tag] v.1.13.6 -> v.1.13.7"
