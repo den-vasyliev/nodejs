@@ -18,9 +18,9 @@ job('ci_approve_qlmm') {
             remote {
                 refspec('+refs/pull-requests/*:refs/remotes/origin/pr/*')
                 url("https://github.com/den-vasyliev/nodejs.git")
-                
             }
             branch('')
+            scm '* * * * * '
         }
     }
     steps {
@@ -32,7 +32,7 @@ job('ci_approve_qlmm') {
             testResults('**/junit.xml')
             allowEmptyResults(true)
         }
-        
+        downstream('publish_qlmm', 'SUCCESS')
     }
 }
 job('publish_qlmm') {
@@ -43,7 +43,7 @@ job('publish_qlmm') {
         pollSCM {
             scmpoll_spec('')
         }
-        scm '* * * * * '
+        
     }
     scm {
         git {
@@ -72,13 +72,8 @@ manager.build.logFile.eachLine {
  
  try {commit=(l =~ /commit notification (.*)/)[0][1]} catch(Exception ex) {;}
  try {version=(l =~ /[new tag].*->(.*)/)[0][1]} catch(Exception ex) {;}
-
 }
-
-
-manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>")
-manager.listener.logger.println("I want to see this line in my job's output: $commit")
- 
+manager.addShortText("<a href=https://github.com/den-vasyliev/nodejs/commit/$commit target=_blank>$version</a>") 
         '''.stripIndent().trim()
 
         junit {
