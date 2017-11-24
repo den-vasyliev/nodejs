@@ -1,7 +1,6 @@
 version="1.13.8"
-testScript = """ true
+testScript = """
     |RESULT=0
-    |echo "[new tag] v.1.13.6 -> v.1.13.7"
     |exit \$RESULT
     """.stripMargin()
 
